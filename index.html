@@ -3,29 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>고이 상조 프로젝션 툴 v2.2</title>
+    <title>고이 상조 프로젝션 툴 v2.3</title>
     <link href="https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@latest/css/SpoqaHanSansNeo.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Spoqa Han Sans Neo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Spoqa Han Sans Neo', -apple-system, BlinkMacSystemFont, sans-serif;
             background: #f5f7fa;
             color: #2c3e50;
             font-size: 14px;
             padding: 20px;
         }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
+        .container { max-width: 1400px; margin: 0 auto; }
         header {
             background: linear-gradient(135deg, #f18334 0%, #e76f1f 100%);
             color: white;
@@ -34,18 +24,8 @@
             box-shadow: 0 2px 8px rgba(241, 131, 52, 0.3);
             margin-bottom: 30px;
         }
-        
-        h1 {
-            font-size: 28px;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-        
-        .subtitle {
-            opacity: 0.95;
-            font-size: 14px;
-        }
-        
+        h1 { font-size: 28px; margin-bottom: 8px; font-weight: 700; }
+        .subtitle { opacity: 0.95; font-size: 14px; }
         .card {
             background: white;
             padding: 25px;
@@ -53,7 +33,6 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             margin-bottom: 20px;
         }
-        
         .card h2 {
             font-size: 18px;
             margin-bottom: 20px;
@@ -62,58 +41,29 @@
             padding-bottom: 10px;
             font-weight: 700;
         }
-        
         .summary-box {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             margin-bottom: 20px;
         }
-        
         .summary-item {
             background: #edeae9;
             padding: 20px;
             border-radius: 8px;
             text-align: center;
         }
-        
-        .summary-label {
-            font-size: 12px;
-            color: #6c757d;
-            margin-bottom: 8px;
-        }
-        
-        .summary-value {
-            font-size: 28px;
-            font-weight: 700;
-            color: #f18334;
-        }
-        
-        .summary-unit {
-            font-size: 14px;
-            color: #6c757d;
-            margin-left: 3px;
-        }
-        
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-        
+        .summary-label { font-size: 12px; color: #6c757d; margin-bottom: 8px; }
+        .summary-value { font-size: 28px; font-weight: 700; color: #f18334; }
+        .summary-unit { font-size: 14px; color: #6c757d; margin-left: 3px; }
+        .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
         .data-table th, .data-table td {
             padding: 12px;
             text-align: center;
             border: 1px solid #e9ecef;
             font-size: 13px;
         }
-        
-        .data-table th {
-            background: #f8f9fa;
-            font-weight: 600;
-            color: #495057;
-        }
-        
+        .data-table th { background: #f8f9fa; font-weight: 600; color: #495057; }
         .data-table input {
             width: 100%;
             padding: 8px;
@@ -122,20 +72,8 @@
             font-size: 13px;
             text-align: center;
         }
-        
-        .data-table .actual {
-            background: #e8f5e9;
-        }
-        
-        .data-table .forecast {
-            background: #fff3e0;
-        }
-        
-        .data-table .highlight {
-            font-weight: 700;
-            background: #f8f9fa;
-        }
-        
+        .data-table .actual { background: #e8f5e9; }
+        .data-table .forecast { background: #fff3e0; }
         .info-box {
             background: #e3f2fd;
             border-left: 4px solid #2196f3;
@@ -145,144 +83,184 @@
             font-size: 13px;
             line-height: 1.6;
         }
-        
-        .chart-container {
-            position: relative;
-            height: 350px;
-            margin-top: 20px;
+        .info-box.warning { background: #fff3e0; border-left-color: #ff9800; }
+        .info-box.success { background: #e8f5e9; border-left-color: #4caf50; }
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            justify-content: center;
+            margin-bottom: 20px;
         }
-        
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        .radio-group label:hover { background: #e9ecef; }
+        .radio-group input[type="radio"] { width: 18px; height: 18px; }
+        .chart-container { position: relative; height: 350px; margin-top: 20px; }
+        .version-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .change-note { font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 5px; }
+        .year-section { margin-top: 15px; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+        .year-section h4 { font-size: 14px; color: #495057; margin-bottom: 10px; }
         @media (max-width: 1024px) {
-            .summary-box {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .summary-box { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>📊 고이 상조 프로젝션 툴 v2.2</h1>
-            <p class="subtitle">Lognormal 전환율 모델 (v2.2, 251123) · 2024 Q3 ~ 2027년 예측</p>
+            <h1>📊 고이 상조 프로젝션 툴 v2.3 <span class="version-badge">250120</span></h1>
+            <p class="subtitle">실측 기반 전환율 모델 · 2024 Q3 ~ 2028년 예측 (3개년 계획)</p>
+            <p class="change-note">v2.2 → v2.3: 1년차 1.2%→0.8%, 균등→Front-loaded, 2025 Q4 실적 반영, 2028년 확장</p>
         </header>
         
-        <!-- 통합 Summary -->
+        <!-- 모델 설정 -->
         <div class="card">
-            <h2>🎯 2026년 예측 결과</h2>
-            <div class="summary-box">
-                <div class="summary-item">
-                    <div class="summary-label">총 전환 고객</div>
-                    <div class="summary-value" id="total2026Conversion">-<span class="summary-unit">명</span></div>
+            <h2>⚙️ 전환율 시나리오 선택</h2>
+            <div class="info-box">
+                <strong>📌 v2.3 모델 특징:</strong><br>
+                • 1년차 전환율: <strong>0.8%</strong> (실측 가중평균 기반, v2.2 대비 -33%)<br>
+                • 월별 패턴: <strong>Front-loaded</strong> (전반부 0-5개월에 63% 집중)<br>
+                • 2년차 이후: Lognormal 감쇠 + 실측 감쇠율 반영
+            </div>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="scenario" value="conservative" checked>
+                    <span><strong>보수적 (10년 7%)</strong><br><small>1년차 0.8% → 10년차 7.0%</small></span>
+                </label>
+                <label>
+                    <input type="radio" name="scenario" value="neutral">
+                    <span><strong>중립적 (10년 9%)</strong><br><small>1년차 0.8% → 10년차 8.7%</small></span>
+                </label>
+            </div>
+        </div>
+        
+        <!-- Summary Cards -->
+        <div class="card">
+            <h2>🎯 연도별 예측 요약</h2>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div>
+                    <h4 style="text-align:center; margin-bottom:10px; color:#6c757d;">2026년</h4>
+                    <div class="summary-box" style="grid-template-columns: repeat(2, 1fr);">
+                        <div class="summary-item">
+                            <div class="summary-label">전환 고객</div>
+                            <div class="summary-value" id="total2026Conversion" style="font-size:24px;">-<span class="summary-unit">명</span></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">매출</div>
+                            <div class="summary-value" id="total2026Revenue" style="font-size:24px;">-<span class="summary-unit">억</span></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="summary-item">
-                    <div class="summary-label">총 매출</div>
-                    <div class="summary-value" id="total2026Revenue">-<span class="summary-unit">억원</span></div>
+                <div>
+                    <h4 style="text-align:center; margin-bottom:10px; color:#6c757d;">2027년</h4>
+                    <div class="summary-box" style="grid-template-columns: repeat(2, 1fr);">
+                        <div class="summary-item">
+                            <div class="summary-label">전환 고객</div>
+                            <div class="summary-value" id="total2027Conversion" style="font-size:24px;">-<span class="summary-unit">명</span></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">매출</div>
+                            <div class="summary-value" id="total2027Revenue" style="font-size:24px;">-<span class="summary-unit">억</span></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="summary-item">
-                    <div class="summary-label">총 공헌이익</div>
-                    <div class="summary-value" id="total2026Contribution">-<span class="summary-unit">억원</span></div>
-                </div>
-                <div class="summary-item">
-                    <div class="summary-label">공헌이익률</div>
-                    <div class="summary-value" id="total2026Margin">-<span class="summary-unit">%</span></div>
+                <div>
+                    <h4 style="text-align:center; margin-bottom:10px; color:#6c757d;">2028년</h4>
+                    <div class="summary-box" style="grid-template-columns: repeat(2, 1fr);">
+                        <div class="summary-item">
+                            <div class="summary-label">전환 고객</div>
+                            <div class="summary-value" id="total2028Conversion" style="font-size:24px;">-<span class="summary-unit">명</span></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">매출</div>
+                            <div class="summary-value" id="total2028Revenue" style="font-size:24px;">-<span class="summary-unit">억</span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         
         <!-- Input Section -->
         <div class="card">
-            <h2>📥 가입 계획 입력</h2>
+            <h2>📥 가입 데이터</h2>
             
-            <div class="info-box">
-                <strong>📌 전환율 모델 (v2.2, 251123):</strong> Lognormal 브랜드 강화 시나리오 (20년 누적 30%) 적용.<br>
-                최근 실적 데이터를 반영하여 1년차 전환율 1.2%, 브랜드 효과 및 CRM 개선을 고려한 장기 전환율 상향 조정.
+            <h3 style="font-size: 16px; margin: 20px 0 10px 0;">✅ 과거 가입 실적 (확정)</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>기간</th><th>가입자 수 (건)</th><th>비고</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="actual"><td>2024 Q3</td><td>4,112</td><td>실적</td></tr>
+                    <tr class="actual"><td>2024 Q4</td><td>8,510</td><td>실적</td></tr>
+                    <tr class="actual"><td>2025 Q1</td><td>13,864</td><td>실적</td></tr>
+                    <tr class="actual"><td>2025 Q2</td><td>5,531</td><td>실적</td></tr>
+                    <tr class="actual"><td>2025 Q3</td><td>8,176</td><td>실적</td></tr>
+                    <tr class="actual"><td>2025 Q4</td><td>63,736</td><td>실적</td></tr>
+                </tbody>
+            </table>
+            
+            <h3 style="font-size: 16px; margin: 30px 0 10px 0;">📋 미래 가입 계획 (3개년)</h3>
+            
+            <div class="year-section">
+                <h4>2026년</h4>
+                <table class="data-table">
+                    <thead><tr><th>기간</th><th>가입자 수 (건)</th></tr></thead>
+                    <tbody>
+                        <tr><td>2026 Q1</td><td><input type="number" id="enroll_2026q1" value="0" min="0" step="1000"></td></tr>
+                        <tr><td>2026 Q2</td><td><input type="number" id="enroll_2026q2" value="0" min="0" step="1000"></td></tr>
+                        <tr><td>2026 Q3</td><td><input type="number" id="enroll_2026q3" value="0" min="0" step="1000"></td></tr>
+                        <tr><td>2026 Q4</td><td><input type="number" id="enroll_2026q4" value="0" min="0" step="1000"></td></tr>
+                    </tbody>
+                </table>
             </div>
             
-            <h3 style="font-size: 16px; margin: 20px 0 10px 0;">과거 가입 실적</h3>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>기간</th>
-                        <th>가입자 수 (건)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="actual">
-                        <td>2024 Q3</td>
-                        <td>4,112</td>
-                    </tr>
-                    <tr class="actual">
-                        <td>2024 Q4</td>
-                        <td>8,510</td>
-                    </tr>
-                    <tr class="actual">
-                        <td>2025 Q1</td>
-                        <td>12,864</td>
-                    </tr>
-                    <tr class="actual">
-                        <td>2025 Q2</td>
-                        <td>6,006</td>
-                    </tr>
-                    <tr class="actual">
-                        <td>2025 Q3</td>
-                        <td>7,617</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="year-section">
+                <h4>2027년</h4>
+                <table class="data-table">
+                    <thead><tr><th>기간</th><th>가입자 수 (건)</th></tr></thead>
+                    <tbody>
+                        <tr><td>2027 Q1</td><td><input type="number" id="enroll_2027q1" value="0" min="0" step="1000"></td></tr>
+                        <tr><td>2027 Q2</td><td><input type="number" id="enroll_2027q2" value="0" min="0" step="1000"></td></tr>
+                        <tr><td>2027 Q3</td><td><input type="number" id="enroll_2027q3" value="0" min="0" step="1000"></td></tr>
+                        <tr><td>2027 Q4</td><td><input type="number" id="enroll_2027q4" value="0" min="0" step="1000"></td></tr>
+                    </tbody>
+                </table>
+            </div>
             
-            <h3 style="font-size: 16px; margin: 20px 0 10px 0;">미래 가입 계획</h3>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>기간</th>
-                        <th>가입자 수 (건)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2025 Q4</td>
-                        <td><input type="number" id="enroll_2025q4" value="70000" min="0" step="1000"></td>
-                    </tr>
-                    <tr>
-                        <td>2026 Q1</td>
-                        <td><input type="number" id="enroll_2026q1" value="50000" min="0" step="1000"></td>
-                    </tr>
-                    <tr>
-                        <td>2026 Q2</td>
-                        <td><input type="number" id="enroll_2026q2" value="50000" min="0" step="1000"></td>
-                    </tr>
-                    <tr>
-                        <td>2026 Q3</td>
-                        <td><input type="number" id="enroll_2026q3" value="50000" min="0" step="1000"></td>
-                    </tr>
-                    <tr>
-                        <td>2026 Q4</td>
-                        <td><input type="number" id="enroll_2026q4" value="50000" min="0" step="1000"></td>
-                    </tr>
-                    <tr>
-                        <td>2027 Q1</td>
-                        <td><input type="number" id="enroll_2027q1" value="50000" min="0" step="1000"></td>
-                    </tr>
-                    <tr>
-                        <td>2027 Q2</td>
-                        <td><input type="number" id="enroll_2027q2" value="50000" min="0" step="1000"></td>
-                    </tr>
-                    <tr>
-                        <td>2027 Q3</td>
-                        <td><input type="number" id="enroll_2027q3" value="50000" min="0" step="1000"></td>
-                    </tr>
-                    <tr>
-                        <td>2027 Q4</td>
-                        <td><input type="number" id="enroll_2027q4" value="50000" min="0" step="1000"></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="year-section">
+                <h4>2028년</h4>
+                <table class="data-table">
+                    <thead><tr><th>기간</th><th>가입자 수 (건)</th></tr></thead>
+                    <tbody>
+                        <tr><td>2028 Q1</td><td><input type="number" id="enroll_2028q1" value="0" min="0" step="1000"></td></tr>
+                        <tr><td>2028 Q2</td><td><input type="number" id="enroll_2028q2" value="0" min="0" step="1000"></td></tr>
+                        <tr><td>2028 Q3</td><td><input type="number" id="enroll_2028q3" value="0" min="0" step="1000"></td></tr>
+                        <tr><td>2028 Q4</td><td><input type="number" id="enroll_2028q4" value="0" min="0" step="1000"></td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         
-        <!-- 통합 분기별 테이블 -->
+        <!-- 분기별 테이블 -->
         <div class="card">
-            <h2>📊 분기별 실적 및 예측 (2024 Q3 ~ 2027 Q4)</h2>
-            
+            <h2>📊 분기별 실적 및 예측</h2>
             <div style="overflow-x: auto;">
                 <table class="data-table">
                     <thead>
@@ -296,75 +274,71 @@
                             <th>구분</th>
                         </tr>
                     </thead>
-                    <tbody id="quarterlyAllBody">
-                    </tbody>
+                    <tbody id="quarterlyAllBody"></tbody>
                 </table>
             </div>
-            
-            <div class="chart-container" style="margin-top: 30px;">
-                <canvas id="quarterlyChart"></canvas>
-            </div>
+            <div class="chart-container"><canvas id="quarterlyChart"></canvas></div>
         </div>
         
-        <!-- 2026 월별 상세 -->
+        <!-- 월별 상세 -->
         <div class="card">
-            <h2>📈 2025 Q4 ~ 2026년 월별 상세 예측</h2>
-            
+            <h2>📈 월별 상세 예측 (2026-2028)</h2>
             <div style="overflow-x: auto;">
                 <table class="data-table">
                     <thead>
                         <tr>
                             <th>월</th>
-                            <th>전환 고객<br>(명)</th>
-                            <th>매출<br>(백만원)</th>
-                            <th>공헌이익<br>(백만원)</th>
+                            <th>전환 고객 (명)</th>
+                            <th>매출 (백만원)</th>
+                            <th>공헌이익 (백만원)</th>
                             <th>주요 기여 코호트</th>
                         </tr>
                     </thead>
-                    <tbody id="monthlyTableBody">
-                    </tbody>
+                    <tbody id="monthlyTableBody"></tbody>
                 </table>
             </div>
-            
-            <div class="chart-container">
-                <canvas id="conversionChart"></canvas>
-            </div>
+            <div class="chart-container"><canvas id="conversionChart"></canvas></div>
         </div>
         
-        <!-- Cohort Breakdown -->
+        <!-- 코호트 분석 -->
         <div class="card">
-            <h2>🎂 코호트별 기여도 분석 (2026년)</h2>
-            
-            <div class="info-box">
-                <strong>📊 연도별 누적 전환율 (v2.2 브랜드 강화 모델):</strong><br>
-                1년차: 1.2% | 2년차: 1.9% | 3년차: 2.9% | 4년차: 4.3% | 5년차: 6.0% | 
-                10년차: 15.8% | 15년차: 25.2% | 20년차: 30.0%
-            </div>
-            
-            <div class="chart-container">
-                <canvas id="cohortChart"></canvas>
-            </div>
-            
+            <h2>🎂 코호트별 기여도 분석</h2>
+            <div class="info-box success" id="cumulativeRatesBox"></div>
+            <div class="chart-container"><canvas id="cohortChart"></canvas></div>
             <div style="overflow-x: auto; margin-top: 20px;">
                 <table class="data-table">
                     <thead>
                         <tr>
                             <th>코호트 연도</th>
-                            <th>누적 가입자<br>(건)</th>
-                            <th>2026년 전환<br>(명)</th>
-                            <th>기여 비중<br>(%)</th>
-                            <th>2026년 매출<br>(억원)</th>
+                            <th>누적 가입자 (건)</th>
+                            <th>2026년 전환 (명)</th>
+                            <th>2027년 전환 (명)</th>
+                            <th>2028년 전환 (명)</th>
                         </tr>
                     </thead>
-                    <tbody id="cohortBreakdownBody">
-                    </tbody>
+                    <tbody id="cohortBreakdownBody"></tbody>
                 </table>
             </div>
+        </div>
+        
+        <!-- 모델 비교 -->
+        <div class="card">
+            <h2>📋 v2.2 vs v2.3 모델 비교</h2>
+            <table class="data-table">
+                <thead><tr><th>항목</th><th>v2.2</th><th>v2.3</th><th>변경 사유</th></tr></thead>
+                <tbody>
+                    <tr><td>1년차 전환율</td><td>1.2%</td><td><strong>0.8%</strong></td><td>실측 가중평균 기반</td></tr>
+                    <tr><td>월별 패턴</td><td>균등</td><td><strong>Front-loaded</strong></td><td>전반부 63% 집중 (실측)</td></tr>
+                    <tr><td>10년 누적</td><td>10.3% (30%기준)</td><td><strong>7-9%</strong></td><td>시나리오 선택</td></tr>
+                    <tr><td>2025 Q4</td><td>70,000 (계획)</td><td><strong>63,736 (실적)</strong></td><td>실적 반영</td></tr>
+                    <tr><td>예측 범위</td><td>~2027</td><td><strong>~2028</strong></td><td>3개년 계획</td></tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
     <script>
-        // 과거 실적 데이터
+        // 과거 실적 데이터 (월별)
         const historicalData = [
             { month: '2024-06', enroll: 512 },
             { month: '2024-07', enroll: 2109 },
@@ -381,7 +355,10 @@
             { month: '2025-06', enroll: 1047 },
             { month: '2025-07', enroll: 1053 },
             { month: '2025-08', enroll: 1974 },
-            { month: '2025-09', enroll: 4590 }
+            { month: '2025-09', enroll: 5149 },
+            { month: '2025-10', enroll: 15167 },
+            { month: '2025-11', enroll: 19087 },
+            { month: '2025-12', enroll: 29482 }
         ];
         
         // 실제 분기별 전환 (검증용)
@@ -390,26 +367,24 @@
             '2024-Q4': 23,
             '2025-Q1': 20,
             '2025-Q2': 86,
-            '2025-Q3': 70
+            '2025-Q3': 70,
+            '2025-Q4': 205
         };
         
         // Unit Economics
         const unitEconomics = {
-            legacy: {
-                revenue: 3300000,
-                goodsCost: 1458100,
-                laborCost: 991900
-            },
-            new2026: {
-                revenue: 3400000,
-                goodsCost: 1258100,
-                laborCost: 1091900
-            }
+            legacy: { revenue: 3300000, goodsCost: 1458100, laborCost: 991900 },
+            new2026: { revenue: 3400000, goodsCost: 1258100, laborCost: 1091900 }
         };
         
         let charts = {};
         
-        // Lognormal CDF
+        // v2.3 1년차 월별 전환율 (실측 기반 Front-loaded)
+        const year1MonthlyWeights = [
+            0.1420, 0.1388, 0.1109, 0.0659, 0.0993, 0.0735,
+            0.0814, 0.0767, 0.0679, 0.0524, 0.0660, 0.0253
+        ];
+        
         function standardNormalCDF(z) {
             const sign = z >= 0 ? 1 : -1;
             const absZ = Math.abs(z);
@@ -420,38 +395,34 @@
         
         function lognormalCDF(x, mu, sigma) {
             if (x <= 0) return 0;
-            const z = (Math.log(x) - mu) / sigma;
-            return standardNormalCDF(z);
+            return standardNormalCDF((Math.log(x) - mu) / sigma);
         }
         
         function calculateConversionRates(finalRate) {
             const sigma = 1.0;
             const mu = Math.log(8) + sigma * sigma;
-            const rates = [];
-            const year1Rate = 0.012; // v2.2: 1.2%
-            rates.push(year1Rate);
+            
+            const year1Rate = 0.008;
+            const year1Monthly = year1MonthlyWeights.map(w => w * year1Rate);
             
             const remaining = (finalRate / 100) - year1Rate;
-            const weights = [];
+            const yearlyWeights = [];
             let totalWeight = 0;
             
-            for (let year = 2; year <= 15; year++) {
+            for (let year = 2; year <= 20; year++) {
                 const weight = lognormalCDF(year + 0.5, mu, sigma) - lognormalCDF(year - 0.5, mu, sigma);
-                weights.push(weight);
+                yearlyWeights.push(weight);
                 totalWeight += weight;
             }
             
-            for (let i = 0; i < weights.length; i++) {
-                rates.push((weights[i] / totalWeight) * remaining);
-            }
+            const monthlyRates = [...year1Monthly];
             
-            // 월별 변환 (균등 분배)
-            const monthlyRates = [];
-            rates.forEach(yearRate => {
+            for (let i = 0; i < yearlyWeights.length; i++) {
+                const yearRate = (yearlyWeights[i] / totalWeight) * remaining;
                 for (let m = 0; m < 12; m++) {
                     monthlyRates.push(yearRate / 12);
                 }
-            });
+            }
             
             return monthlyRates;
         }
@@ -464,68 +435,58 @@
         
         function getQuarter(month) {
             const [year, m] = month.split('-');
-            const q = Math.ceil(parseInt(m) / 3);
-            return `${year}-Q${q}`;
+            return `${year}-Q${Math.ceil(parseInt(m) / 3)}`;
         }
         
         function simulate() {
-            const scenario = 30; // v2.2: 30%
-            const monthlyRates = calculateConversionRates(scenario);
+            const scenarioEl = document.querySelector('input[name="scenario"]:checked');
+            const scenario = scenarioEl ? scenarioEl.value : 'conservative';
+            const finalRate = scenario === 'conservative' ? 20 : 25;
             
-            // 모든 코호트 수집
+            const monthlyRates = calculateConversionRates(finalRate);
             const allCohorts = [...historicalData];
             
-            // 2025 Q4 추가
-            const q4_2025 = parseFloat(document.getElementById('enroll_2025q4').value) || 0;
-            ['2025-10', '2025-11', '2025-12'].forEach(month => {
-                allCohorts.push({ 
-                    month, 
-                    enroll: q4_2025 / 3
-                });
-            });
+            // 2026 Q1 (1-3월)
+            const q1_2026 = parseFloat(document.getElementById('enroll_2026q1').value) || 0;
+            ['2026-01', '2026-02', '2026-03'].forEach(m => allCohorts.push({ month: m, enroll: q1_2026 / 3 }));
             
-            // 2026년 분기별 추가
-            const quarters = [
-                { id: 'enroll_2026q1', months: ['2026-01', '2026-02', '2026-03'] },
+            // 2026 Q2-Q4
+            [
                 { id: 'enroll_2026q2', months: ['2026-04', '2026-05', '2026-06'] },
                 { id: 'enroll_2026q3', months: ['2026-07', '2026-08', '2026-09'] },
                 { id: 'enroll_2026q4', months: ['2026-10', '2026-11', '2026-12'] }
-            ];
-            
-            quarters.forEach(q => {
-                const qEnroll = parseFloat(document.getElementById(q.id).value) || 0;
-                q.months.forEach(month => {
-                    allCohorts.push({ 
-                        month, 
-                        enroll: qEnroll / 3
-                    });
-                });
+            ].forEach(q => {
+                const val = parseFloat(document.getElementById(q.id).value) || 0;
+                q.months.forEach(m => allCohorts.push({ month: m, enroll: val / 3 }));
             });
             
-            // 2027년 분기별 추가
-            const quarters2027 = [
+            // 2027
+            [
                 { id: 'enroll_2027q1', months: ['2027-01', '2027-02', '2027-03'] },
                 { id: 'enroll_2027q2', months: ['2027-04', '2027-05', '2027-06'] },
                 { id: 'enroll_2027q3', months: ['2027-07', '2027-08', '2027-09'] },
                 { id: 'enroll_2027q4', months: ['2027-10', '2027-11', '2027-12'] }
-            ];
-            
-            quarters2027.forEach(q => {
-                const qEnroll = parseFloat(document.getElementById(q.id).value) || 0;
-                q.months.forEach(month => {
-                    allCohorts.push({ 
-                        month, 
-                        enroll: qEnroll / 3
-                    });
-                });
+            ].forEach(q => {
+                const val = parseFloat(document.getElementById(q.id).value) || 0;
+                q.months.forEach(m => allCohorts.push({ month: m, enroll: val / 3 }));
             });
             
-            // 전체 기간 월별 계산 (2024-07 ~ 2027-12)
+            // 2028
+            [
+                { id: 'enroll_2028q1', months: ['2028-01', '2028-02', '2028-03'] },
+                { id: 'enroll_2028q2', months: ['2028-04', '2028-05', '2028-06'] },
+                { id: 'enroll_2028q3', months: ['2028-07', '2028-08', '2028-09'] },
+                { id: 'enroll_2028q4', months: ['2028-10', '2028-11', '2028-12'] }
+            ].forEach(q => {
+                const val = parseFloat(document.getElementById(q.id).value) || 0;
+                q.months.forEach(m => allCohorts.push({ month: m, enroll: val / 3 }));
+            });
+            
+            // 전체 월 생성 (2024-07 ~ 2028-12)
             const allMonths = [];
-            for (let y = 2024; y <= 2027; y++) {
+            for (let y = 2024; y <= 2028; y++) {
                 const startM = y === 2024 ? 7 : 1;
-                const endM = 12;
-                for (let m = startM; m <= endM; m++) {
+                for (let m = startM; m <= 12; m++) {
                     allMonths.push(`${y}-${String(m).padStart(2, '0')}`);
                 }
             }
@@ -539,18 +500,14 @@
                     if (monthsElapsed >= 0 && monthsElapsed < monthlyRates.length) {
                         const conversion = cohort.enroll * monthlyRates[monthsElapsed];
                         totalConversion += conversion;
-                        
                         const cohortYear = cohort.month.split('-')[0];
                         cohortContributions[cohortYear] = (cohortContributions[cohortYear] || 0) + conversion;
                     }
                 });
                 
-                // 매출/공헌이익 계산
-                let revenue = 0;
-                let contribution = 0;
-                
+                let revenue = 0, contribution = 0;
                 Object.entries(cohortContributions).forEach(([year, converts]) => {
-                    const ue = (year === '2026' || year === '2027') ? unitEconomics.new2026 : unitEconomics.legacy;
+                    const ue = parseInt(year) >= 2026 ? unitEconomics.new2026 : unitEconomics.legacy;
                     revenue += converts * ue.revenue;
                     contribution += converts * (ue.revenue - ue.goodsCost - ue.laborCost);
                 });
@@ -559,80 +516,79 @@
                     month: targetMonth,
                     quarter: getQuarter(targetMonth),
                     conversion: totalConversion,
-                    revenue,
-                    contribution,
-                    cohortContributions
+                    revenue, contribution, cohortContributions
                 };
             });
             
-            return { monthlyResults, allCohorts };
+            return { monthlyResults, allCohorts, finalRate };
         }
         
         function updateUI() {
-            const { monthlyResults, allCohorts } = simulate();
+            const { monthlyResults, allCohorts, finalRate } = simulate();
             
             // 분기별 집계
             const quarterlyData = {};
             monthlyResults.forEach(m => {
                 if (!quarterlyData[m.quarter]) {
-                    quarterlyData[m.quarter] = {
-                        conversion: 0,
-                        revenue: 0,
-                        contribution: 0,
-                        enroll: 0
-                    };
+                    quarterlyData[m.quarter] = { conversion: 0, revenue: 0, contribution: 0, enroll: 0 };
                 }
                 quarterlyData[m.quarter].conversion += m.conversion;
                 quarterlyData[m.quarter].revenue += m.revenue;
                 quarterlyData[m.quarter].contribution += m.contribution;
             });
             
-            // 분기별 가입자 집계
             allCohorts.forEach(cohort => {
                 const q = getQuarter(cohort.month);
-                if (quarterlyData[q]) {
-                    quarterlyData[q].enroll += cohort.enroll;
-                }
+                if (quarterlyData[q]) quarterlyData[q].enroll += cohort.enroll;
             });
             
-            // 2026년 Summary
-            const months2026 = monthlyResults.filter(m => m.month.startsWith('2026'));
-            const total2026 = months2026.reduce((acc, m) => ({
-                conversion: acc.conversion + m.conversion,
-                revenue: acc.revenue + m.revenue,
-                contribution: acc.contribution + m.contribution
-            }), { conversion: 0, revenue: 0, contribution: 0 });
+            // 연도별 Summary
+            ['2026', '2027', '2028'].forEach(year => {
+                const yearData = monthlyResults.filter(m => m.month.startsWith(year));
+                const total = yearData.reduce((acc, m) => ({
+                    conversion: acc.conversion + m.conversion,
+                    revenue: acc.revenue + m.revenue
+                }), { conversion: 0, revenue: 0 });
+                
+                document.getElementById(`total${year}Conversion`).innerHTML = 
+                    Math.round(total.conversion).toLocaleString() + '<span class="summary-unit">명</span>';
+                document.getElementById(`total${year}Revenue`).innerHTML = 
+                    (total.revenue / 100000000).toFixed(1) + '<span class="summary-unit">억</span>';
+            });
             
-            document.getElementById('total2026Conversion').innerHTML = 
-                Math.round(total2026.conversion) + '<span class="summary-unit">명</span>';
-            document.getElementById('total2026Revenue').innerHTML = 
-                (total2026.revenue / 100000000).toFixed(1) + '<span class="summary-unit">억원</span>';
-            document.getElementById('total2026Contribution').innerHTML = 
-                (total2026.contribution / 100000000).toFixed(1) + '<span class="summary-unit">억원</span>';
-            document.getElementById('total2026Margin').innerHTML = 
-                ((total2026.contribution / total2026.revenue) * 100).toFixed(1) + '<span class="summary-unit">%</span>';
+            // 누적 전환율 표시 (10년까지)
+            const cumulativeRates = [];
+            let cumul = 0;
+            const monthlyRates = calculateConversionRates(finalRate);
+            for (let y = 1; y <= 10; y++) {
+                for (let m = 0; m < 12; m++) {
+                    cumul += monthlyRates[(y-1)*12 + m] || 0;
+                }
+                if ([1, 2, 3, 5, 10].includes(y)) {
+                    cumulativeRates.push(`${y}년차: ${(cumul*100).toFixed(1)}%`);
+                }
+            }
+            document.getElementById('cumulativeRatesBox').innerHTML = 
+                `<strong>📊 v2.3 연도별 누적 전환율 (10년 ${finalRate === 20 ? '7%' : '9%'} 시나리오):</strong><br>` + cumulativeRates.join(' | ');
             
-            // 통합 분기별 테이블
-            const quarterlyAllBody = document.getElementById('quarterlyAllBody');
+            // 분기별 테이블
+            const quarters = [];
+            for (let y = 2024; y <= 2028; y++) {
+                const startQ = y === 2024 ? 3 : 1;
+                for (let q = startQ; q <= 4; q++) quarters.push(`${y}-Q${q}`);
+            }
+            
             let quarterlyHtml = '';
-            
-            const quarters = ['2024-Q3', '2024-Q4', '2025-Q1', '2025-Q2', '2025-Q3', '2025-Q4', 
-                            '2026-Q1', '2026-Q2', '2026-Q3', '2026-Q4',
-                            '2027-Q1', '2027-Q2', '2027-Q3', '2027-Q4'];
-            
             quarters.forEach(q => {
                 const data = quarterlyData[q] || { enroll: 0, conversion: 0, revenue: 0, contribution: 0 };
                 const isActual = actualQuarterlyConversions[q] !== undefined;
                 const rowClass = isActual ? 'actual' : 'forecast';
-                const label = isActual ? '실적' : '예측';
-                
                 const conversion = isActual ? actualQuarterlyConversions[q] : data.conversion;
-                const revenue = isActual ? 
-                    actualQuarterlyConversions[q] * unitEconomics.legacy.revenue : 
-                    data.revenue;
-                const contribution = isActual ?
-                    actualQuarterlyConversions[q] * (unitEconomics.legacy.revenue - unitEconomics.legacy.goodsCost - unitEconomics.legacy.laborCost) :
+                const revenue = isActual ? actualQuarterlyConversions[q] * unitEconomics.legacy.revenue : data.revenue;
+                const contribution = isActual ? 
+                    actualQuarterlyConversions[q] * (unitEconomics.legacy.revenue - unitEconomics.legacy.goodsCost - unitEconomics.legacy.laborCost) : 
                     data.contribution;
+                const margin = revenue > 0 ? (contribution / revenue) * 100 : 0;
                 
                 quarterlyHtml += `
                     <tr class="${rowClass}">
@@ -641,26 +597,24 @@
                         <td>${isActual ? conversion : Math.round(conversion)}</td>
                         <td>${(revenue / 100000000).toFixed(2)}</td>
                         <td>${(contribution / 100000000).toFixed(2)}</td>
-                        <td>${((contribution / revenue) * 100).toFixed(1)}</td>
-                        <td><strong>${label}</strong></td>
-                    </tr>
-                `;
+                        <td>${margin.toFixed(1)}</td>
+                        <td><strong>${isActual ? '실적' : '예측'}</strong></td>
+                    </tr>`;
             });
-            quarterlyAllBody.innerHTML = quarterlyHtml;
+            document.getElementById('quarterlyAllBody').innerHTML = quarterlyHtml;
             
-            // 2025 Q4 + 2026 월별 테이블
-            const months2025q4And2026 = monthlyResults.filter(m => {
-                const [year, month] = m.month.split('-').map(Number);
-                return (year === 2025 && month >= 10) || year === 2026;
+            // 월별 테이블 (2026-2028)
+            const targetMonths = monthlyResults.filter(m => {
+                const year = parseInt(m.month.split('-')[0]);
+                return year >= 2026;
             });
             
-            const monthlyBody = document.getElementById('monthlyTableBody');
             let monthlyHtml = '';
-            months2025q4And2026.forEach(m => {
+            targetMonths.forEach(m => {
                 const topCohorts = Object.entries(m.cohortContributions)
                     .sort((a, b) => b[1] - a[1])
                     .slice(0, 2)
-                    .map(([year, _]) => year)
+                    .map(([year]) => year)
                     .join(', ');
                 
                 monthlyHtml += `
@@ -670,69 +624,52 @@
                         <td>${(m.revenue / 1000000).toFixed(1)}</td>
                         <td>${(m.contribution / 1000000).toFixed(1)}</td>
                         <td>${topCohorts}</td>
-                    </tr>
-                `;
+                    </tr>`;
             });
-            monthlyBody.innerHTML = monthlyHtml;
+            document.getElementById('monthlyTableBody').innerHTML = monthlyHtml;
             
-            // 코호트별 기여도 (2026년만)
-            const cohortYears = ['2024', '2025', '2026', '2027'];
+            // 코호트별 기여도
+            const cohortYears = ['2024', '2025', '2026', '2027', '2028'];
             const cohortBreakdown = cohortYears.map(year => {
                 const yearCohorts = allCohorts.filter(c => c.month.startsWith(year));
                 const totalEnroll = yearCohorts.reduce((sum, c) => sum + c.enroll, 0);
                 
-                let yearConversion = 0;
-                let yearRevenue = 0;
+                const conv2026 = monthlyResults.filter(m => m.month.startsWith('2026'))
+                    .reduce((sum, m) => sum + (m.cohortContributions[year] || 0), 0);
+                const conv2027 = monthlyResults.filter(m => m.month.startsWith('2027'))
+                    .reduce((sum, m) => sum + (m.cohortContributions[year] || 0), 0);
+                const conv2028 = monthlyResults.filter(m => m.month.startsWith('2028'))
+                    .reduce((sum, m) => sum + (m.cohortContributions[year] || 0), 0);
                 
-                months2026.forEach(m => {
-                    const converts = m.cohortContributions[year] || 0;
-                    yearConversion += converts;
-                    const ue = (year === '2026' || year === '2027') ? unitEconomics.new2026 : unitEconomics.legacy;
-                    yearRevenue += converts * ue.revenue;
-                });
-                
-                return {
-                    year,
-                    totalEnroll,
-                    conversion: yearConversion,
-                    revenue: yearRevenue,
-                    share: total2026.conversion > 0 ? (yearConversion / total2026.conversion) * 100 : 0
-                };
+                return { year, totalEnroll, conv2026, conv2027, conv2028 };
             });
             
-            const cohortBreakdownBody = document.getElementById('cohortBreakdownBody');
             let cohortHtml = '';
             cohortBreakdown.forEach(c => {
                 cohortHtml += `
                     <tr>
                         <td>${c.year}</td>
                         <td>${Math.round(c.totalEnroll).toLocaleString()}</td>
-                        <td>${Math.round(c.conversion)}</td>
-                        <td>${c.share.toFixed(1)}</td>
-                        <td>${(c.revenue / 100000000).toFixed(2)}</td>
-                    </tr>
-                `;
+                        <td>${Math.round(c.conv2026)}</td>
+                        <td>${Math.round(c.conv2027)}</td>
+                        <td>${Math.round(c.conv2028)}</td>
+                    </tr>`;
             });
-            cohortBreakdownBody.innerHTML = cohortHtml;
+            document.getElementById('cohortBreakdownBody').innerHTML = cohortHtml;
             
             // 차트 업데이트
-            updateCharts(monthlyResults, quarterlyData, cohortBreakdown, months2025q4And2026);
+            updateCharts(quarters, quarterlyData, targetMonths, cohortBreakdown);
         }
         
-        function updateCharts(monthlyResults, quarterlyData, cohortBreakdown, months2025q4And2026) {
+        function updateCharts(quarters, quarterlyData, targetMonths, cohortBreakdown) {
             // 분기별 차트
             if (charts.quarterly) charts.quarterly.destroy();
             const ctx0 = document.getElementById('quarterlyChart').getContext('2d');
             
-            const quarters = ['2024-Q3', '2024-Q4', '2025-Q1', '2025-Q2', '2025-Q3', '2025-Q4', 
-                            '2026-Q1', '2026-Q2', '2026-Q3', '2026-Q4',
-                            '2027-Q1', '2027-Q2', '2027-Q3', '2027-Q4'];
-            
             const actualData = quarters.map(q => actualQuarterlyConversions[q] || null);
             const forecastData = quarters.map(q => {
                 if (actualQuarterlyConversions[q]) return null;
-                const data = quarterlyData[q];
-                return data ? Math.round(data.conversion) : 0;
+                return quarterlyData[q] ? Math.round(quarterlyData[q].conversion) : 0;
             });
             
             charts.quarterly = new Chart(ctx0, {
@@ -740,43 +677,28 @@
                 data: {
                     labels: quarters,
                     datasets: [
-                        {
-                            label: '실적',
-                            data: actualData,
-                            backgroundColor: '#38a169'
-                        },
-                        {
-                            label: '예측',
-                            data: forecastData,
-                            backgroundColor: '#f18334'
-                        }
+                        { label: '실적', data: actualData, backgroundColor: '#38a169' },
+                        { label: '예측', data: forecastData, backgroundColor: '#f18334' }
                     ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'top' }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: { display: true, text: '전환 고객 수 (명)' }
-                        }
-                    }
+                    plugins: { legend: { position: 'top' } },
+                    scales: { y: { beginAtZero: true, title: { display: true, text: '전환 (명)' } } }
                 }
             });
             
-            // 월별 전환 차트 (2025 Q4 + 2026)
+            // 월별 차트
             if (charts.conversion) charts.conversion.destroy();
             const ctx1 = document.getElementById('conversionChart').getContext('2d');
             charts.conversion = new Chart(ctx1, {
                 type: 'line',
                 data: {
-                    labels: months2025q4And2026.map(m => m.month),
+                    labels: targetMonths.map(m => m.month),
                     datasets: [{
-                        label: '전환 고객 수',
-                        data: months2025q4And2026.map(m => Math.round(m.conversion)),
+                        label: '전환 고객',
+                        data: targetMonths.map(m => Math.round(m.conversion)),
                         borderColor: '#f18334',
                         backgroundColor: 'rgba(241, 131, 52, 0.1)',
                         fill: true,
@@ -786,46 +708,40 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: { display: true, text: '명' }
-                        }
-                    }
+                    scales: { y: { beginAtZero: true } }
                 }
             });
             
-            // 코호트 기여도 차트
+            // 코호트 차트
             if (charts.cohort) charts.cohort.destroy();
             const ctx2 = document.getElementById('cohortChart').getContext('2d');
             charts.cohort = new Chart(ctx2, {
-                type: 'doughnut',
+                type: 'bar',
                 data: {
-                    labels: cohortBreakdown.map(c => c.year + '년 코호트'),
-                    datasets: [{
-                        data: cohortBreakdown.map(c => c.conversion),
-                        backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444']
-                    }]
+                    labels: cohortBreakdown.map(c => c.year + '년'),
+                    datasets: [
+                        { label: '2026년 전환', data: cohortBreakdown.map(c => Math.round(c.conv2026)), backgroundColor: '#3b82f6' },
+                        { label: '2027년 전환', data: cohortBreakdown.map(c => Math.round(c.conv2027)), backgroundColor: '#10b981' },
+                        { label: '2028년 전환', data: cohortBreakdown.map(c => Math.round(c.conv2028)), backgroundColor: '#f59e0b' }
+                    ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'bottom' }
-                    }
+                    plugins: { legend: { position: 'top' } },
+                    scales: { x: { stacked: false }, y: { beginAtZero: true } }
                 }
             });
         }
         
-        // Event listeners
+        // 이벤트 리스너
         document.querySelectorAll('input').forEach(input => {
             input.addEventListener('input', updateUI);
         });
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', updateUI);
+        });
         
-        // 초기 실행
         updateUI();
     </script>
 </body>
